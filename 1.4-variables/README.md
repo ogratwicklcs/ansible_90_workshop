@@ -161,6 +161,6 @@ To get an idea what facts Ansible collects by default, on your control node as y
 ----
 **Navigation**
 <br>
-[Previous Exercise](../1.3-playbook) - [Next Exercise](../1.5-handlers)
+[Previous Exercise](../1.3-playbook) - [Next Exercise](../1.5-surveys)
 
 [Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md#section-1---ansible-engine-exercises)
