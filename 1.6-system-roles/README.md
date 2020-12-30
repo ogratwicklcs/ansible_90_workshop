@@ -22,11 +22,6 @@ The goal of this exercise is to understand and use pre-existing content in the f
   - Use the [timesync role](https://galaxy.ansible.com/linux-system-roles/timesync) to configure NTP
 - Use a pre-populated Ansible Survey to configure the RHEL web hosts
 
-# Guide
-
-Linux System Roles create a consistent user interface to provide settings to a given subsystem that is abstract from any particular implementation. For example, assigning an IP Address to a network interface should be a generic concept separate from any particular implementations such as init networking scripts, NetworkManager, or systemd-networkd.
-
-This exercise will use two Linux System Roles, the `timesync` and `firewall` roles.
 
 ## Step 1 - Examine Ansible Project
 
@@ -40,7 +35,7 @@ Take note of the Github repository that was pre-loaded into your Ansible Tower e
 
 ## Step 2 - Examine the Ansible Playbook
 
-Open the repository linked above in your web browser. Navigate to **playbooks/03_hardening.yml**
+Open the repository linked above in your web browser. Navigate to **playbooks/security/hardening.yml**
 
 Take note of these two tasks:
 
@@ -156,29 +151,6 @@ Apr 21 14:37:14 localhost.localdomain chronyd[934]: Using right/UTC timezone to 
 Apr 21 14:37:14 localhost.localdomain systemd[1]: Started NTP client/server.
 Apr 21 14:38:12 ip-172-16-47-87.us-east-2.compute.internal chronyd[934]: Selected source 129.250.35.250
 Apr 21 14:38:12 ip-172-16-47-87.us-east-2.compute.internal chronyd[934]: System clock TAI offset set to 37 seconds
-```
-
-Here are some other commands that can be used to verify time is working correctly:
-
-```
-# chronyc tracking  
-# chronyc sources
-# chronyc sourcestats
-# systemctl status chronyd
-# chronyc activity
-# timedatectl
-```
-
-For example:
-
-```
-$ timedatectl
-               Local time: Wed 2020-04-22 03:52:15 UTC
-           Universal time: Wed 2020-04-22 03:52:15 UTC
-                 RTC time: Wed 2020-04-22 03:52:15
-                Time zone: UTC (UTC, +0000)
-System clock synchronized: yes
-              NTP service: active
 ```
 
 # Complete
