@@ -9,7 +9,6 @@
 * [Step 3 - Ping a host](#step-3---ping-a-host)
 * [Step 4 - Listing Modules and Getting Help](#step-4---listing-modules-and-getting-help)
 * [Step 5 - Use the command module:](#step-5---use-the-command-module)
-* [Step 6 - The copy module and permissions](#step-6---the-copy-module-and-permissions)
 
 
 # Objective
@@ -149,67 +148,6 @@ uid=1001(student1) gid=1001(student1) Gruppen=1001(student1) Kontext=unconfined_
 > **Tip**
 >
 > Like many Linux commands, `ansible` allows for long-form options as well as short-form.  For example `ansible web --module-name ping` is the same as running `ansible web -m ping`.  We are going to be using the short-form options throughout this workshop.
-
-## Step 4 - The copy module and permissions
-
-Using the `copy` module, execute an ad hoc command on `node1` to change the contents of the `/etc/motd` file. **The content is handed to the module through an option in this case**.
-
-Run the following, but **expect an error**:
-
-```bash
-[student<X>@ansible ~]$ ansible node1 -m copy -a 'content="Managed by Ansible\n" dest=/etc/motd'
-```
-
-As mentioned this produces an **error**:
-
-```bash
-    node1 | FAILED! => {
-        "changed": false,
-        "checksum": "a314620457effe3a1db7e02eacd2b3fe8a8badca",
-        "failed": true,
-        "msg": "Destination /etc not writable"
-    }
-```
-
-The output of the ad hoc command is screaming **FAILED** in red at you. Why? Because user **student\<X\>** is not allowed to write the motd file.
-
-Now this is a case for privilege escalation and the reason `sudo` has to be setup properly. We need to instruct Ansible to use `sudo` to run the command as root by using the parameter `-b` (think "become").
-
-```bash
-[student<X>@ansible ~]$ ansible node1 -m copy -a 'content="Managed by Ansible\n" dest=/etc/motd' -b
-```
-
-This time the command is a success:
-
-```
-node1 | CHANGED => {
-    "changed": true,
-    "checksum": "4458b979ede3c332f8f2128385df4ba305e58c27",
-    "dest": "/etc/motd",
-    "gid": 0,
-    "group": "root",
-    "md5sum": "65a4290ee5559756ad04e558b0e0c4e3",
-    "mode": "0644",
-    "owner": "root",
-    "secontext": "system_u:object_r:etc_t:s0",
-    "size": 19,
-    "src": "/home/student1/.ansible/tmp/ansible-tmp-1557857641.21-120920996103312/source",
-    "state": "file",
-    "uid": 0
-```
-
-Use Ansible with the generic `command` module to check the content of the motd file:
-
-```bash
-[student<X>@ansible ~]$ ansible node1 -m command -a 'cat /etc/motd'
-node1 | CHANGED | rc=0 >>
-Managed by Ansible
-```
-
-> **Tip**
->
-> This makes it a lot easier to spot changes and what Ansible actually did.
-
 
 ----
 **Navigation**
