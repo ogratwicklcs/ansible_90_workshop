@@ -87,5 +87,3 @@ You might have guessed by now this lab is pretty commandline-centric…​ :-)
 **Navigation**
 <br>
 [Next Exercise](../1.2-adhoc)
-
-[Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md#section-1---ansible-engine-exercises)

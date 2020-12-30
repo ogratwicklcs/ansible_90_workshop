@@ -186,6 +186,6 @@ Note how the two variables where used by the playbook to create the content of t
 ----
 **Navigation**
 <br>
-[Previous Exercise](../2.3-projects) - [Next Exercise](../2.5-rbac)
+[Previous Exercise](../1.4-variables) - [Next Exercise](../1.6-system-roles)
 
-[Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md#section-2---ansible-tower-exercises)
+

@@ -153,5 +153,3 @@ uid=1001(student1) gid=1001(student1) Gruppen=1001(student1) Kontext=unconfined_
 **Navigation**
 <br>
 [Previous Exercise](../1.1-setup) - [Next Exercise](../1.3-playbook)
-
-[Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md)

@@ -9,7 +9,7 @@
   - [Step 3 - Running the Playbook](#step-3---running-the-playbook)
   - [Step 4 - Extend your Playbook: Start &amp; Enable Apache](#step-4---extend-your-playbook-start--enable-apache)
   - [Step 5 - Extend your Playbook: Create an web.html](#step-5---extend-your-playbook-create-an-indexhtml)
-  - [Step 6 - Practice: Apply to Multiple Host](#step-6---practice-apply-to-multiple-host)
+
 
 # Objective
 
@@ -60,7 +60,7 @@ There are some important concepts:
 
 ## Step 2 - Creating a Directory Structure and File for your Playbook
 
-Enough theory, it’s time to create your first Ansible Playbook. In this lab you create a playbook to set up an Apache web server in three steps:
+It’s time to create your first Ansible Playbook. In this lab you create a playbook to set up an Apache web server in three steps:
 
   1. Install httpd package
 
@@ -70,14 +70,15 @@ Enough theory, it’s time to create your first Ansible Playbook. In this lab yo
 
 This Playbook makes sure the package containing the Apache web server is installed on `node1`.
 
-On your control host **ansible**, create a directory called `ansible-files` in your home directory and change directories into it:
+On your control host **ansible**, create a directory called `ansible-files` in your home directory and change directories into it. Add a file called `apache.yml` with the following content. 
 
 ```bash
 [student<X>@ansible ~]$ mkdir ansible-files
 [student<X>@ansible ~]$ cd ansible-files/
+[student<X>@ansible ansible-files] nano apache.yml
 ```
 
-Add a file called `apache.yml` with the following content. 
+
 
 ```yaml
 ---
@@ -142,26 +143,6 @@ Now you should be ready to run your playbook:
 ```
 
 The output should not report any errors but provide an overview of the tasks executed and a play recap summarizing what has been done. 
-
-Connect to `node1` via SSH to make sure Apache has been installed:
-
-```
-[student<X>@ansible ansible-files]$ ssh node1
-Last login: Wed May 15 14:03:45 2019 from 44.55.66.77
-Managed by Ansible
-```
-
-Use the command `rpm -qi httpd` to verify httpd is installed:
-
-```
-[student<X>@node1 ~]$ rpm -qi httpd
-Name        : httpd
-Version     : 2.4.6
-[...]
-```
-
-Log out of `node1` with the command `exit` so that you are back on the control host.
-
 ## Step 4 - Extend your Playbook: Start & Enable Apache
 
 The next part of the Ansible Playbook makes sure the Apache application is enabled and started on `node1`.
@@ -212,7 +193,8 @@ Then create the file `~/ansible-files/files/web.html` on the control node:
 ```
 
 
-On the control node as your student user edit the file `~/ansible-files/apache.yml` and add a new task utilizing the `copy` module. It should now look like this:
+On the control node as your student user edit the file `~/ansible-files/apache.yml` and add a new task utilizing the `copy` module. Additionally, we might want to scale the automation. So instead of running the playbook only on `node1` let us change the `hosts: node1` to `hosts: web`. 
+It should now look like this:
 
 ```yaml
 ---
@@ -243,9 +225,6 @@ Run your extended Playbook:
 [student<X>@ansible ansible-files]$ ansible-playbook apache.yml
 ```
 
-  - Have a good look at the output
-
-  - Run the ad hoc command  using the "uri" module from further above again to test Apache: The command should now return a friendly green "status: 200" line, amongst other information.
 
 ```bash
 [student<X>@ansible ansible-files]$ ansible localhost -m uri -a "url=http://node1"
@@ -255,5 +234,3 @@ Run your extended Playbook:
 **Navigation**
 <br>
 [Previous Exercise](../1.2-adhoc) - [Next Exercise](../1.4-variables)
-
-[Click here to return to the Ansible for Red Hat Enterprise Linux Workshop](../README.md#section-1---ansible-engine-exercises)
