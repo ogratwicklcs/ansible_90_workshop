@@ -1,13 +1,5 @@
 # Workshop Exercise - Check the Prerequisites
 
-## Table of Contents
-
-* [Objective](#objective)
-* [Guide](#guide)
-* [Your Lab Environment](#your-lab-environment)
-* [Step 1 - Access the Environment](#step-1---access-the-environment)
-* [Step 2 - Working the Labs](#step-2---working-the-labs)
-
 # Objective
 
 - Understand the lab topology and how to access the environment.
@@ -29,23 +21,25 @@ In this lab you work in a pre-configured lab environment. You will have access t
 
 ## Step 1 - Access the Environment
 
-Login to your control host via SSH:
+All automation is done from the Ansible control host, a Red Hat Enterprise Linux machine. To make access to the control host and managing files on it easier there is a online version of VS Code editor installed directly on the control host. This way it can be accessed via a normal web browser. Commands can be executed right from the terminal within the VS Code editor.
 
-> **Warning**
->
-> Replace **11.22.33.44** by your **IP** provided to you, and the **X** in student**X** by the student number provided to you.
+Let's access the Visual Studio Code. Click on the link for VS Code access from the workshop page:
 
-    ssh studentX@11.22.33.44
+![VS Code Access](images/1-vscode-access.png)
 
-> **Tip**
->
-> The password will be located on with the rest of the connection information for your personal lab
+At this point, you will see a **Welcome** page:
 
-Then become root:
+![VS Code - Welcome](images/1-vscode-welcome-page.png)
 
-    [student<X>@ansible ~]$ sudo -i
+From within this environment, you can create and modify files or open a terminal and execute commands.
 
-Most prerequisite tasks have already been done for you:
+## Step 2 - Opening up Bash Terminal
+
+So let's open a new terminal in VS Code. In the menu bar, click on **Terminal** > **New Terminal**. 
+
+![VS Code - New Terminal](images/1-vscode-new-terminal.png)
+
+A new terminal will be opened in the lower part of your editor and you will be at the command prompt. Note that most prerequisite tasks have already been done for you:
 
   - Ansible software is installed
 
@@ -53,26 +47,20 @@ Most prerequisite tasks have already been done for you:
 
   - `sudo` has been configured on the managed hosts to run commands that require root privileges.
 
-Check Ansible has been installed correctly
+Note that each student is assigned a student number, i.e. X and you should work as that student <X> user on the control node if not explicitly told differently.
 
-    [root@ansible ~]# ansible --version
-    ansible 2.9.3
-    [...]
+Next, proceed to check that Ansible has been installed correctly.
 
-> **Note**
->
-> Ansible is keeping configuration management simple. Ansible requires no database or running daemons and can run easily on a laptop. On the managed hosts it needs no running agent.
+```bash
+    [student<X>@ansible ~]$ ansible --version
+```
 
-Log out of the root account again:
+The result should resemble the following:
 
-    [root@ansible ~]# exit
-    logout
+![VS Code - Check Ansible Version](images/1-vscode-check-ansible-version.png)
 
-> **Note**
->
-> In all subsequent exercises you should work as the student\<X\> user on the control node if not explicitly told differently.
 
-## Step 2 - Working the Labs
+## Step 3 - Working the Labs
 
 You might have guessed by now this lab is pretty commandline-centric…​ :-)
 
