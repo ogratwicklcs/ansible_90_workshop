@@ -70,15 +70,14 @@ It’s time to create your first Ansible Playbook. In this lab you create a play
 
 This Playbook makes sure the package containing the Apache web server is installed on `node1`.
 
-On your control host **ansible**, create a directory called `ansible-files` in your home directory and change directories into it. Add a file called `apache.yml` with the following content. 
+On your control host **ansible**, create a directory called `ansible-files` in your home directory and change directories into it. 
 
 ```bash
 [student<X>@ansible ~]$ mkdir ansible-files
 [student<X>@ansible ~]$ cd ansible-files/
-[student<X>@ansible ansible-files] nano apache.yml
 ```
 
-
+In the new directory add a file called `apache.yml` with the below content.  In order to create a new file in VS Code go to `File` > `New File` this will create an empty unsaved file.  To save the file either use your keyboard shortcut `Ctrl` + `S` or go to `File` > `Save` and in the dropdown make sure to save the file in the new directory you created.
 
 ```yaml
 ---

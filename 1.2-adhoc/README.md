@@ -67,50 +67,16 @@ The behavior of Ansible can be customized by modifying settings in Ansible’s i
 
 In the lab environment provided to you an `.ansible.cfg` file has already been created and filled with the necessary details in the home directory of your `student<X>` user on the control node:
 
-```bash
-[student<X>@ansible ~]$ ls -la .ansible.cfg
--rw-r--r--. 1 student<X> student<X> 231 14. Mai 17:17 .ansible.cfg
-```
+The view the file, click on the `File` menu button on the top left-hand corner of your Visual Studio code. And select `Open File`:
+![VS Code Open](images/open_file.png) 
 
-Output the content of the file:
-
-```bash
-[student<X>@ansible ~]$ cat .ansible.cfg
-[defaults]
-stdout_callback = yaml
-connection = smart
-timeout = 60
-deprecation_warnings = False
-host_key_checking = False
-retry_files_enabled = False
-inventory = /home/student<X>/lab_inventory/hosts
-```
+From the drop-down menu `.ansible.cfg` which will display your ansible config file.
 
 There are multiple configuration flags provided, but make sure to note the last line: where the location of the inventory is provided. That is the way Ansible knew in the previous commands what machines to connect to.
 
-Output the content of your dedicated inventory:
-
-```bash
-[student<X>@ansible ~]$ cat /home/student<X>/lab_inventory/hosts
-[all:vars]
-ansible_user=student<X>
-ansible_ssh_pass=ansible
-ansible_port=22
-
-[web]
-node1 ansible_host=11.22.33.44
-node2 ansible_host=22.33.44.55
-node3 ansible_host=33.44.55.66
-
-[control]
-ansible ansible_host=44.55.66.77
-```
+Now to view the inventory file, go back to the VS Code menu and go to `File` > `Open File` and in the drop-down select the `lab_inventory` > `hosts`.  Which will open the inventory file noted in your ansible.cfg. 
 
 ## Step 2 - Ping a host
-
-> **Warning**
->
-> **Don’t forget to run the commands from the home directory of your student user, `/home/student<X>`. That is where your `.ansible.cfg` file is located, without it Ansible will not know what which inventory to use.**
 
 Let's start with something really basic - pinging a host. To do that we use the Ansible `ping` module. The `ping` module makes sure our target hosts are responsive.  
 
@@ -118,7 +84,7 @@ Let's start with something really basic - pinging a host. To do that we use the 
 >
 > Think of a module as a tool which is designed to accomplish a specific task.
 
-Ansible needs to know that it should use the `ping` module: The `-m` option defines which Ansible module to use. Options can be passed to the specified module using the `-a` option.
+Type the below bash commands in VS Code terminal which you opened in the previous exercise.  Ansible needs to know that it should use the `ping` module: The `-m` option defines which Ansible module to use. Options can be passed to the specified module using the `-a` option.
 
 ```bash
 [student<X>@ansible ~]$ ansible web -m ping
