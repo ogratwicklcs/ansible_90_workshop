@@ -70,7 +70,7 @@ In the lab environment provided to you an `.ansible.cfg` file has already been c
 The view the file, click on the **File** menu button on the top left-hand corner of your Visual Studio code. And select **Open File**:
 ![VS Code Open](images/open_file.PNG) 
 
-From the drop-down menu `.ansible.cfg` which will display your ansible config file.
+From the drop-down menu select `.ansible.cfg` which will display your ansible configuration file.
 
 There are multiple configuration flags provided, but make sure to note the last line: where the location of the inventory is provided. That is the way Ansible knew in the previous commands what machines to connect to.
 
