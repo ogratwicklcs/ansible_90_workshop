@@ -60,6 +60,7 @@ The result should resemble the following:
 ![VS Code - Check Ansible Version](images/1-vscode-check-ansible-version.png)
 
 **NOTE** 
+
 The version you see might be different
 
 ## Step 3 - Working the Labs
