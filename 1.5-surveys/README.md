@@ -48,11 +48,11 @@ Now you create a new Template that includes a survey.
 
 - Configure the template to:
 
-    - Use the `Ansible Workshop Examples` **Project**
+    - Use the `Workshop Project` **Project**
 
     - Use the `apache_role_install.yml` **Playbook**
 
-    - To run on `node1`
+    - To run on `web` group
 
     - To run in privileged mode
 
@@ -81,7 +81,7 @@ Try for yourself, the solution is below.
   </tr>
   <tr>
     <td>Project</td>
-    <td>Ansible Workshop Examples</td>
+    <td>Workshop Project</td>
   </tr>  
   <tr>
     <td>PLAYBOOK</td>
@@ -89,7 +89,7 @@ Try for yourself, the solution is below.
   </tr>
   <tr>
     <td>CREDENTIAL</td>
-    <td>Workshop Credentials</td>
+    <td>Workshop Credential</td>
   </tr>
   <tr>
     <td>LIMIT</td>
@@ -174,7 +174,7 @@ Before the actual launch the survey will ask for **First Line** and **Second Lin
 After the job has completed, check the Apache homepage. In the SSH console on the control host, execute `curl` against the IP address of your `node1`:
 
 ```bash
-$ curl http://22.33.44.55
+$ curl node1
 <body>
 <h1>Apache is running fine</h1>
 <h1>This is survey field "First Line": line one</h1>

@@ -67,7 +67,7 @@ There are two tasks that include a role.  If you have trouble distinguishing a r
 
 ## Step 3 - Examine the Linux System Roles
 
-The Ansible Playbooks are simple.  They just use the pre-built Ansible Playbooks provided by Ansible Galaxy and Automation Hub.  These were pre-installed for this Ansible Workshop.
+These roles are simple.  They are similiar to the Ansible playbooks that we have been working with during our exercise, but broken down into smaller logical parts.  
 
 - [firewall system role](https://galaxy.ansible.com/linux-system-roles/firewall)  - by default this installs firewalld, python3-firewall.  Optional parameters can be sent such as what service to open:
 
@@ -95,9 +95,7 @@ vars:
 
 In the Ansible Tower UI navigate to **Templates**.  
 
-Click on the **rocket** to launch the **SERVER / Hardening** job template:
-
-![job template](images/job.png)
+Click on the **rocket** to launch the **SECURITY / Hardening** job template:
 
 This will launch a survey before starting the job.  Fill out the survey:
 

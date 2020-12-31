@@ -67,7 +67,7 @@ The behavior of Ansible can be customized by modifying settings in Ansible’s i
 
 In the lab environment provided to you an `.ansible.cfg` file has already been created and filled with the necessary details in the home directory of your `student<X>` user on the control node:
 
-The view the file, click on the **File** menu button on the top left-hand corner of your Visual Studio code. And select **Open File**:
+The view the file, click on the **File** menu button on the top left-hand corner of your Visual Studio Code. And select **Open File**:
 ![VS Code Open](images/open_file.PNG) 
 
 From the drop-down menu select `.ansible.cfg` which will display your ansible configuration file.
